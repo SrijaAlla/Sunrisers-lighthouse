@@ -23,6 +23,9 @@ pip install requirements.txt
    PINECONE_API_KEY=your_pinecone_api_key
    PINECONE_ENV=your_pinecone_environment
    ```
+### Create vector database in pinecone
+Run the cells in file `rag_based_elective_final.ipynb`. There are some extra cells for testing
+
 ### Backend Setup
 ```python
 python app.py
@@ -38,3 +41,6 @@ npm start
 cd data/
 ```
 output is store in `documents.txt`
+
+### code for meta LLama
+ `rag_based.ipynb`
