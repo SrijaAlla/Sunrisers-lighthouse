@@ -7,7 +7,6 @@ from openai import OpenAI
 from langchain_pinecone import PineconeVectorStore
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain.chains import RetrievalQA
-import streamlit as st
 from langchain.memory import ConversationBufferMemory
 from flask import Flask, request, jsonify
 from flask_cors import CORS
