@@ -44,3 +44,7 @@ output is store in `documents.txt`
 
 ### code for meta LLama
  `rag_based.ipynb`
+# Demo Video
+
+[Download and watch the video](./demo.mp4)
+
