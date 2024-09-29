@@ -1,6 +1,6 @@
-# Elective Genie - AI Chatbot
+# UB AI HACKATHON
 
-This project is an AI-powered chatbot designed to help students select electives at the University at Buffalo. It uses a Retrieval-Augmented Generation (RAG) approach with a Pinecone vector database and OpenAI GPT for generating responses.
+This project is an AI-powered chatbot designed to help patients find the best insurance plan using AI. It uses a Retrieval-Augmented Generation (RAG) approach with a Pinecone vector database and OpenAI GPT for generating responses.
 
 ## Getting Started
 
@@ -23,8 +23,7 @@ pip install requirements.txt
    PINECONE_API_KEY=your_pinecone_api_key
    PINECONE_ENV=your_pinecone_environment
    ```
-### Create vector database in pinecone
-Run the cells in file `rag_based_elective_final.ipynb`. There are some extra cells for testing
+
 
 ### Backend Setup
 ```python
@@ -36,15 +35,4 @@ cd chatbot-frontend
 npm install
 npm start
 ```
-### Scraper 
-```python
-cd data/
-```
-output is store in `documents.txt`
-
-### code for meta LLama
- `rag_based.ipynb`
-# Demo Video
-
-[Download and watch the video](./demo.mp4)
 
