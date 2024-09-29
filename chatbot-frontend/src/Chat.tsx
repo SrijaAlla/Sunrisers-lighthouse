@@ -1,11 +1,17 @@
 // src/components/Chat.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import lighthouse from "./lighthouse.jpg";
 
 interface Message {
   sender: "user" | "bot";
   text: string;
+}
+// TypeScript interface for props (optional, if needed)
+interface ImageProps {
+  src: string;
+  alt: string;
 }
 
 // Modify the container to fill the entire screen
@@ -19,7 +25,7 @@ const ChatContainer = styled.div`
 `;
 
 const ChatHeader = styled.div`
-  background-color: #1d3a45; /* Dark blue for the header */
+  background-color: #252b42; /* Dark blue for the header */
   color: white;
   padding: 20px;
   font-size: 20px;
@@ -73,7 +79,7 @@ const Input = styled.input`
 
 const SendButton = styled.button`
   border: none;
-  background-color: #3c6661; /* Dark green send button */
+  background-color: #252b42; /* Dark green send button */
   color: white;
   padding: 15px;
   border-radius: 50%;
@@ -91,11 +97,34 @@ const QuickReplyButton = styled.button`
   font-size: 14px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 `;
-
+// Style the image
+const HeaderImage = styled.img`
+  width: 40px; /* Adjust the size */
+  height: 40px;
+  margin-right: 10px; /* Space between image and text */
+`;
+const ImageComponent: React.FC<ImageProps> = ({ src, alt }) => {
+  return (
+    <div>
+      <img
+        src={src}
+        alt={alt}
+        style={{ display: "flex", width: "1em", height: "auto" }}
+      />
+    </div>
+  );
+};
 const Chat: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>("");
-
+  useEffect(() => {
+    setMessages([
+      {
+        sender: "bot",
+        text: "Hello! How can I help you today?",
+      },
+    ]);
+  }, []);
   const handleSendMessage = async (text: string) => {
     if (text.trim() === "") return;
 
@@ -122,7 +151,13 @@ const Chat: React.FC = () => {
 
   return (
     <ChatContainer>
-      <ChatHeader>Elective Bot</ChatHeader>
+      <ChatHeader>
+        <div>
+          <ImageComponent src={lighthouse} alt="Logo" />
+          <span>LightHouse Bot</span>
+        </div>
+        {/* LightHouse Bot */}
+      </ChatHeader>
       <ChatBody>
         {messages.map((message, index) => (
           <MessageBubble key={index} sender={message.sender}>
@@ -150,16 +185,20 @@ const Chat: React.FC = () => {
         }}
       >
         <QuickReplyButton
-          onClick={() => handleSendMessage("Just saying hello!")}
+          onClick={() =>
+            handleSendMessage("Suggest me a Health Insurance Plan")
+          }
         >
-          Just saying hello!
+          Suggest me a Health Insurance Plan
         </QuickReplyButton>
         <QuickReplyButton
           onClick={() =>
-            handleSendMessage("What courses to learn about Machine learning?")
+            handleSendMessage(
+              "What are some cheap insurance plans for dental care?"
+            )
           }
         >
-          What courses to learn about Machine learning?
+          What are some cheap insurance plans for dental care?
         </QuickReplyButton>
       </div>
     </ChatContainer>

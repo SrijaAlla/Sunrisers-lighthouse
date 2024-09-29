@@ -6,3 +6,4 @@ openai
 langchain
 langchain-pinecone
 langchain-openai
+flask_cors
